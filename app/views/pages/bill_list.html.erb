@@ -1,0 +1,66 @@
+
+<h1 align="center"><u>LIST OF BILLS PAID BY ALL CUSTOMERS</u></h1>
+<br>
+<hr>
+<div><font align="center" class="btn btn-erik"><%=link_to "Create New Bill", '/bills/new'%></font>
+  <div align="right"> Total Paid Till Now: &nbsp <%= total_bill%></div>
+</div>
+
+ 
+<br>
+ <% @bill_by_months.each do |month, bills| %>
+
+ 
+  <tbody><tr>
+      <td><h3><%= month %></h3> </td>
+    </tr>
+  </tbody>
+<table class="table table-hover" >
+     
+  <thead bgcolor="#008AB8">
+    <tr>
+      <th>Bill Number</th>
+      <th>Paid On</th>
+      <th>Customer Name</th>
+      <th>Customer ID</th>
+      <th>Customer IP Address</th>
+      <th>Transaction type</th>
+      <th>Valid up to</th>     
+      <th>Bill amount</th>
+     </tr>
+  </thead>
+      <tbody> 
+        <tr>
+          <% for bill in bills%>
+            <td><%= bill.id %></td>
+            <td><%= bill.created_at.strftime "%d %B %Y" %></td>
+            <td><%= link_to Customer.find(bill.customer_id).name, Customer.find(bill.customer_id) %></td>
+            <td><%= Customer.find(bill.customer_id).customer_id %></td>
+            <td><%= Customer.find(bill.customer_id).ip_address %></td>
+            <td><%= bill.transaction_type %></td>
+            <td><%= bill.valid_up_to.strftime "%d %B %Y" %></td>
+            <td style="text-align:right"><%= bill.bill_amount %> </td>
+          
+          </tr>
+          
+          <%end%>
+          <tr>
+             <td> </td>
+             <td> </td>
+             <td> </td>
+             <td> </td>
+             <td> </td>
+             <td> </td>
+             <td >total</td>
+             <td style="text-align:right"> </td>
+          </tr>
+        </tbody>
+   <%end%>   
+  </table>
+
+
+
+
+ 
+
+  

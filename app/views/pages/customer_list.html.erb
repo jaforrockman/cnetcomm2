@@ -1,0 +1,37 @@
+<h1 align="center"><u>LIST OF ALL CUSTOMERS</u></h1>
+<br>
+<%= link_to "Create New Customer", '/customers/new', class: "btn btn-erik"%>
+
+<table id="client_list" class="table table-hover" style="font-size:10px">
+    <thead  bgcolor="#008AB8">
+      <tr>
+        <th>Name</th>
+        <th>Customer ID</th>
+        <th>Mac address</th>
+        <th>Ip address</th>
+        <th>Connection type</th>
+        <th>Status</th>
+        <th>Billing code</th>
+        <th>Contact no</th>
+        <th>Contact person</th>
+        <th>Email</th>
+      </tr>
+    </thead>
+
+    <tbody >
+      <% @customers.each do |customer| %>
+        <tr>
+          <td><%= customer.name %></td>
+          <td><%= link_to customer.customer_id , customer%></td>
+          <td><%= customer.mac_address %></td>
+          <td><%= customer.ip_address %></td>
+          <td><%= customer.connection_type %></td>
+          <td><%= customer.status %></td>
+          <td><%= customer.billing_code %></td>
+          <td><%= customer.contact_no %></td>
+          <td><%= customer.contact_person %></td>
+          <td><%= customer.email %></td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
