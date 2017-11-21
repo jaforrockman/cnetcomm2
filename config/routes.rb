@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :connection_types
   root to:'pages#home'
 
   get  '/about' => 'pages#about'
@@ -8,11 +9,12 @@ Rails.application.routes.draw do
   get '/admin_panel'=> 'pages#admin_panel'
 
   devise_for :users
+  resources :users
   resources :costs
+  
   resources :bills do
     get :autocomplete_customer_name, :on => :collection
-  end
-  
+  end  
 
   resources :customers
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

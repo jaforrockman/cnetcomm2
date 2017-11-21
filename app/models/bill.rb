@@ -1,7 +1,8 @@
 class Bill < ApplicationRecord
 	
-	belongs_to :customer, dependent: :destroy
+	belongs_to :customer
 	validates :customer_id, presence: true
+
 
 		def customer_name
 			customer.try(:name)

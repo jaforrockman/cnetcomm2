@@ -4,7 +4,8 @@
 <p> 
   <table style="width:50%" class="table table-hover" align="center" >
     <caption><h2>User Details</h2></caption>
-    <tr s>
+    <tr>
+    <%#=User.find(params[:id]).name%>
       <th > <strong >Name:</strong></th>
       <th><%= @user.name %></th>
     </tr> 

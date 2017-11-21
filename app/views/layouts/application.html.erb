@@ -1,34 +1,94 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>CnetCom</title>
+
+ <title>CnetCom</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
- <meta charset="utf-8" />
+    <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Simple Responsive Admin</title>
-	<!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-     <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
+     
      <!-- GOOGLE FONTS-->
    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
-
 </head>
+<body>
+     
+           
+          
+    <div id="wrapper">
+         <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="adjust-nav">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="/">
+                       
+                    <img src="assets/img/logo.png">
 
+                    </a>
+                    
+                </div>
+              
+                <span class="logout-spn" >
+              <% if user_signed_in? %>
+                 Signed in as &nbsp <%= current_user.name%> 
+                  <%= link_to "Not you? sign out", destroy_user_session_path, :method => :delete%>
+               <%else%>
+                  
+                <% end %>  
 
-<body class="container">
+                </span>
+            </div>
+        </div>
+        <!-- /. NAV TOP  -->
+          <% if user_signed_in? %>
 
-<%= render partial:'layouts/navigationtop' %>
-   <div id="wrapper">
+        <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+                 
+                    <li class="active-link">
+                        <a href="/" ><i class="fa fa-desktop "></i>Dashboard <span class="badge">Included</span></a>
+                    </li>
+                   
+                    <li>
+                        <a href="/customers"><i class="fa fa-table "></i>Customers</a>
+                    </li>
+                    <li>
+                        <a href="/bills"><i class="fa fa-edit "></i>Bills  </a>
+                    </li>
+                    <li>
+                        <a href="/costs"><i class="fa fa-edit "></i>Costs  </a>
+                    </li>
+                    <li>
+                        <a href="/users"><i class="fa fa-edit "></i>Users  </a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-qrcode "></i>My Link One</a>
+                    </li>
+                                       
+                </ul>
+            </div>
 
-    <%= render partial:'layouts/navigation' %>
-   
+        </nav>
+        <% else %>
+        Please sign in
+        <%end%>
+
+        <!-- /. NAV SIDE  -->
+        <div id="page-wrapper" >
+            
+             <%= yield %>
+             <!-- /. PAGE INNER  -->
+            </div>
+         <!-- /. PAGE WRAPPER  -->
+        </div>
     <div class="footer">
       
     
@@ -38,46 +98,33 @@
                 </div>
             </div>
         </div>
-   </div>
+          
 
-
-	
-
-<%= yield %>
-
- <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
-
+   
 </body>
 </html>
 <!--
 <div>
-	<ul class="nav nav-pills pull-right">
-		<li><%= link_to "Home", root_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
-		<li><%= link_to "Customers List", customer_list_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
-		<li><%= link_to "Bills List", bill_list_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
-		<li><%= link_to "Cost_List", cost_list_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
-		<li><%= link_to "Cost List", costs_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
-		<li><%= link_to "About", about_url, class:"btn btn-erik"%></li>
-		<% if user_signed_in? %>
-		<li class="btn btn-erik">Signed in as &nbsp <%= current_user.name %> </li>
-		<li class= "btn-erik" > <%= link_to "Not you? sign out", destroy_user_session_path, :method => :delete%></li>
-		<%else%>
-		<li><%= link_to "Sign up", new_user_registration_path, class: "btn-erik"  %></li> <li><%= link_to"Sign in", new_user_session_path, class: "btn-erik"  %></li>
-		<% end %>
+  <ul class="nav nav-pills pull-right">
+    <li><%= link_to "Home", root_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
+    <li><%= link_to "Customers List", customer_list_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
+    <li><%= link_to "Bills List", bill_list_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
+    <li><%= link_to "Cost_List", cost_list_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
+    <li><%= link_to "Cost List", costs_url, class:"btn btn-erik"%> &nbsp &nbsp</li>
+    <li><%= link_to "About", about_url, class:"btn btn-erik"%></li>
+    <% if user_signed_in? %>
+    <li class="btn btn-erik">Signed in as &nbsp <%= current_user.name %> </li>
+    <li class= "btn-erik" > <%= link_to "Not you? sign out", destroy_user_session_path, :method => :delete%></li>
+    <%else%>
+    <li><%= link_to "Sign up", new_user_registration_path, class: "btn-erik"  %></li> <li><%= link_to"Sign in", new_user_session_path, class: "btn-erik"  %></li>
+    <% end %>
 
-	</ul>
+  </ul>
 </div>
 
 <br>
-	<div style="background-color:#19355E">
-		<h1><%= link_to "CNET COMMUNICATION", root_url %><small>//Gateway to the world</small></h1>
+  <div style="background-color:#19355E">
+    <h1><%= link_to "CNET COMMUNICATION", root_url %><small>//Gateway to the world</small></h1>
 
 </div>
 -->

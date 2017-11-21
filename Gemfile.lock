@@ -41,6 +41,7 @@ GEM
     addressable (2.5.2)
       public_suffix (>= 2.0.2, < 4.0)
     arel (8.0.0)
+    awesome_link (0.0.6)
     bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
     builder (3.2.3)
@@ -74,6 +75,8 @@ GEM
     faraday (0.13.1)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18-x86-mingw32)
+    font-awesome-rails (4.7.0.2)
+      railties (>= 3.2, < 5.2)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     i18n (0.9.1)
@@ -93,7 +96,7 @@ GEM
     jquery-turbolinks (2.1.0)
       railties (>= 3.1.0)
       turbolinks
-    jquery-ui-rails (6.0.1)
+    jquery-ui-rails (5.0.5)
       railties (>= 3.2.16)
     json (1.8.6)
     loofah (2.1.1)
@@ -134,8 +137,6 @@ GEM
       nokogiri (>= 1.6)
     rails-html-sanitizer (1.0.3)
       loofah (~> 2.0)
-    rails4-autocomplete (1.1.1)
-      rails (>= 3.0)
     railties (5.1.4)
       actionpack (= 5.1.4)
       activesupport (= 5.1.4)
@@ -224,19 +225,20 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  awesome_link
   bcrypt (~> 3.1.7)
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
   devise
+  font-awesome-rails
   jbuilder (~> 2.5)
   jquery-datatables-rails
   jquery-rails
   jquery-turbolinks
-  jquery-ui-rails
+  jquery-ui-rails (= 5.0.5)
   puma (~> 3.7)
   rails (~> 5.1.4)
-  rails4-autocomplete
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   selenium-webdriver

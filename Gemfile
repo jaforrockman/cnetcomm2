@@ -11,21 +11,20 @@ gem 'puma', '~> 3.7'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks', '~> 5'
-gem 'rails4-autocomplete'
+#gem 'rails4-autocomplete'
 gem 'jquery-turbolinks'
-gem 'jquery-ui-rails'
-gem 'jquery-rails'
+gem 'jquery-ui-rails', '5.0.5'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'sunspot_rails'
 gem 'jquery-datatables-rails'
 gem 'devise'
 gem 'simple_form'
-
+gem "font-awesome-rails"
 gem 'sass-rails', '~> 5.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'uglifier', '>= 1.3.0'
-
+gem 'awesome_link'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'bcrypt', '~> 3.1.7'

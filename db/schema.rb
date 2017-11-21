@@ -10,13 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171103092055) do
+ActiveRecord::Schema.define(version: 20171110164432) do
 
   create_table "bills", force: :cascade do |t|
     t.string "customer_id"
     t.decimal "bill_amount"
     t.date "valid_up_to"
     t.string "transaction_type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "connection_types", force: :cascade do |t|
+    t.string "title"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

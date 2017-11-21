@@ -2,7 +2,7 @@
 
 <h1>Listing Customers</h1>
 
-<table style="font-size:10px" class="table table-hover">
+<table id="customers" class="table table-striped table-bordered table-hover">
   <thead>
     <tr>
       <th >Name</th>      <th>Customer ID</th>
@@ -22,7 +22,7 @@
   <tbody>
     <% @customers.each do |customer| %>
       <tr>
-        <td><%= link_to customer.name %></td>
+        <td><%= link_to customer.name, customer %></td>
         <td><%= customer.customer_id %></td>
         <td><%= customer.mac_address %></td>
         <td><%= customer.ip_address %></td>

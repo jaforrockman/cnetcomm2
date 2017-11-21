@@ -1,6 +1,7 @@
 class BillsController < ApplicationController
-  before_action :set_bill, only: [:show, :edit, :update, :destroy]
   autocomplete :customer, :name 
+  before_action :set_bill, only: [:show, :edit, :update, :destroy]
+  
     
 
   # GET /bills
@@ -72,6 +73,6 @@ class BillsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def bill_params
-      params.require(:bill).permit(:customer_id, :bill_amount, :valid_up_to, :transaction_type)
+      params.require(:bill).permit(:customer_id, :bill_amount, :valid_up_to, :transaction_type, :customer_name)
     end
 end
