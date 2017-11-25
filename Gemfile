@@ -7,7 +7,7 @@ end
 
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
-gem 'sqlite3'
+
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks', '~> 5'
@@ -40,7 +40,7 @@ group  :production do
 end
 
 group :development,:test do
-  
+  gem 'sqlite3'
   gem 'sunspot_solr'
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
