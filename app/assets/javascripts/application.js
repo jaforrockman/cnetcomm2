@@ -15,9 +15,6 @@
 //= jquery-1.10.2
 //= require jquery
 //= require jquery-ui
-//= require jquery-ui/autocomplete
-//= require autocomplete-rails
-//=require awesomplete
 //= require dataTables/jquery.dataTables
 //= require jquery-ui/datepicker
 //= require jquery.turbolinks

@@ -16,46 +16,84 @@
     <%= f.text_field :name, class: "form-control" %>
   </div>
   <div class="field">
-    <%= f.label :customer_id %><br>
-    <%= f.text_field :customer_id %>
+  <table class="table table-hover">
+    <tr>
+      <th><%= f.label :customer_id %></th>
+      <th><%= f.label :mac_address %></th>
+    </tr>
+
+    <tr>
+      <td> <%= f.text_field :customer_id %></td>
+      <td><%= f.text_field :mac_address %></td>
+
+    </tr>
+  </table>
+  
   </div>
+  
   <div class="field">
-    <%= f.label :mac_address %><br>
-    <%= f.text_field :mac_address %>
+ <table class="table table-hover">
+    <tr>
+      <th><%= f.label :ip_address %></th>
+      <th><%= f.label :connection_type %></th>
+    </tr>
+
+    <tr>
+      <td> <%= f.text_field :ip_address %></td>
+      <td><%= f.select :connection_type, ["Upto 512 Kbps(Regular)","Upto 1 Mbps(Regular)", "Upto 1.5 Mbps(Regular)","Upto 2 Mbps(Regular)","Upto 3 Mbps(Regular)" ,"Upto 512 Kbps(Special)","Upto 1 Mbps(Special)", "Upto 1.5 Mbps(Special)","Upto 2 Mbps(Special)","Upto 3 Mbps(Special)","Upto 512 Kbps(Dedicated)","Upto 1 Mbps(Dedicated)", "Upto 1.5 Mbps(Dedicated)","Upto 2 Mbps(Dedicated)","Upto 3 Mbps(Dedicated)"] %></td>
+
+    </tr>
+  </table>
   </div>
+ 
   <div class="field">
-    <%= f.label :ip_address %><br>
-    <%= f.text_field :ip_address %>
+ <table class="table table-hover">
+    <tr>
+      <th> <%= f.label :status %> </th>
+      <th><%= f.label :billing_code %></th>
+    </tr>
+
+    <tr>
+      <td>  <%= f.select :status, ["active", "inactive"]  %></td>
+      <td><%= f.select :billing_code, ["On 1st of Month","On 7th of Month", "On 14th of Month" ] %></td>
+
+    </tr>
+  </table>
+
   </div>
+   
   <div class="field">
-    <%= f.label :connection_type %><br>
-    <%= f.select :connection_type, ["Upto 512 Kbps(Regular)","Upto 1 Mbps(Regular)", "Upto 1.5 Mbps(Regular)","Upto 2 Mbps(Regular)","Upto 3 Mbps(Regular)" ,"Upto 512 Kbps(Special)","Upto 1 Mbps(Special)", "Upto 1.5 Mbps(Special)","Upto 2 Mbps(Special)","Upto 3 Mbps(Special)","Upto 512 Kbps(Dedicated)","Upto 1 Mbps(Dedicated)", "Upto 1.5 Mbps(Dedicated)","Upto 2 Mbps(Dedicated)","Upto 3 Mbps(Dedicated)"] %>
+   <table class="table table-hover">
+    <tr>
+      <th> <%= f.label :contact_no %> </th>
+      <th> <%= f.label :contact_person %></th>
+    </tr>
+
+    <tr>
+      <td>  <%= f.text_field :contact_no %></td>
+      <td><%= f.text_field :contact_person %></td>
+
+    </tr>
+  </table>  
   </div>
+
   <div class="field">
-    <%= f.label :status %><br>
-    <%= f.select :status, ["active", "inactive"]  %>
+   <table class="table table-hover">
+      <tr>
+        <th> <%= f.label :email %></th>
+        <th>  <%= f.label :address %></th>
+      </tr>
+
+      <tr>
+        <td>  <%= f.text_field :email %> </td>
+        <td> <%= f.text_area :address %></td>
+
+      </tr>
+    </table>
+
   </div>
-  <div class="field">
-    <%= f.label :billing_code %><br>
-    <%= f.select :billing_code, ["On 1st of Month","On 7th of Month", "On 14th of Month" ] %>
-  </div>
-  <div class="field">
-    <%= f.label :address %><br>
-    <%= f.text_area :address %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_no %><br>
-    <%= f.text_field :contact_no %>
-  </div>
-  <div class="field">
-    <%= f.label :contact_person %><br>
-    <%= f.text_field :contact_person %>
-  </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Create Customer", class: "btn btn-primary"  %>
   </div>
 <% end %>

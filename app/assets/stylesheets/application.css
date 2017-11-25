@@ -12,12 +12,10 @@
  *
  *= require jquery-ui
  *= custom
- *= require jquery-ui/autocomplete
  *= require font-awesome
  *= require dataTables/jquery.dataTables
  *= require bootstrap.min
  *= require jquery-ui/datepicker
- *= require awesomplete
  *= require_tree .
  *= require_self
  */
