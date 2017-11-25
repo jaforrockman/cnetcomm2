@@ -35,15 +35,17 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
-group :production do
-	gem 'pg'
+group :development, :production do
+  gem 'pg', '0.21.0'
 end
 
-group :development do
-  gem 'sunspot_solr'
+group :test do
   gem 'sqlite3'
+end
+
+  gem 'sunspot_solr'
   gem 'web-console', '>= 3.3.0'
   gem 'spring'
-end
+
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
