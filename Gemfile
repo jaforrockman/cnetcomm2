@@ -35,6 +35,10 @@ group :development, :test do
   gem 'selenium-webdriver'
 end
 
+group :production do
+	gem 'pg'
+end
+
 group :development do
   gem 'sunspot_solr'
   gem 'sqlite3'
