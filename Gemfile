@@ -7,7 +7,7 @@ end
 
 gem 'rails', '~> 5.1.4'
 gem 'puma', '~> 3.7'
-gem 'sqlite3'
+gem 'sqlite3', '1.3.7'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks', '~> 5'
