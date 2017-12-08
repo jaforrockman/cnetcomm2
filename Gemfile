@@ -28,22 +28,20 @@ gem 'awesome_link'
 gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'bcrypt', '~> 3.1.7'
+gem 'sqlite3'
+gem 'web-console', '>= 3.3.0'
+gem 'sunspot_solr'
+gem 'spring'
+gem 'capybara', '~> 2.13'
+gem 'selenium-webdriver'
 
 group :development, :test do
- gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-  gem 'capybara', '~> 2.13'
-  gem 'selenium-webdriver'
-end
-
-group  :production do
-  gem 'pg', '0.21.0'
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+  
 end
 
 group :development,:test do
-  gem 'sqlite3'
-  gem 'sunspot_solr'
-  gem 'web-console', '>= 3.3.0'
-  gem 'spring'
+ 
 
 
 end
