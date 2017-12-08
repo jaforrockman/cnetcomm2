@@ -29,13 +29,16 @@ gem 'will_paginate'
 gem 'will_paginate-bootstrap'
 gem 'bcrypt', '~> 3.1.7'
 gem 'sqlite3'
-gem 'web-console', '>= 3.3.0'
+
 gem 'sunspot_solr'
 gem 'spring'
 gem 'capybara', '~> 2.13'
 gem 'selenium-webdriver'
 
 group :development, :test do
+  
+
+  gem 'web-console', '>= 3.3.0'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   
 end
