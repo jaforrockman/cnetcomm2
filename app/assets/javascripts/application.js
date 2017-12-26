@@ -18,7 +18,9 @@
 //= require dataTables/jquery.dataTables
 //= require jquery-ui/datepicker
 //= require jquery.turbolinks
+//= require maskedinput
 //= require jquery_ujs
 //= require bootstrap.min
 //= require rails-ujs
+//= require bootstrap-datepicker
 //= require_tree .

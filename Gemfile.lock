@@ -45,6 +45,8 @@ GEM
     bcrypt (3.1.11)
     bcrypt (3.1.11-x86-mingw32)
     bindex (0.5.0)
+    bootstrap-datepicker-rails (1.7.1.1)
+      railties (>= 3.0)
     builder (3.2.3)
     byebug (9.1.0)
     capybara (2.15.4)
@@ -106,6 +108,7 @@ GEM
       nokogiri (>= 1.5.9)
     mail (2.7.0)
       mini_mime (>= 0.1.1)
+    maskedinput-rails (1.4.1.0)
     method_source (0.9.0)
     mini_mime (0.1.4)
     mini_portile2 (2.3.0)
@@ -233,6 +236,7 @@ PLATFORMS
 DEPENDENCIES
   awesome_link
   bcrypt (~> 3.1.7)
+  bootstrap-datepicker-rails
   byebug
   capybara (~> 2.13)
   coffee-rails (~> 4.2)
@@ -243,6 +247,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails (= 5.0.5)
+  maskedinput-rails
   puma (~> 3.7)
   rails (~> 5.1.4)
   sass-rails (~> 5.0)
