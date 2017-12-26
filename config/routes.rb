@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :connections
   resources :connection_types
   root to:'pages#home'
 

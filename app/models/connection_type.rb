@@ -1,2 +1,0 @@
-class ConnectionType < ApplicationRecord
-end

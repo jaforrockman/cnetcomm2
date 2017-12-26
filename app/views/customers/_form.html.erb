@@ -40,7 +40,10 @@
 
     <tr>
       <td> <%= f.text_field :ip_address %></td>
-      <td><%= f.select :connection_type, ["Upto 512 Kbps(Regular)","Upto 1 Mbps(Regular)", "Upto 1.5 Mbps(Regular)","Upto 2 Mbps(Regular)","Upto 3 Mbps(Regular)" ,"Upto 512 Kbps(Special)","Upto 1 Mbps(Special)", "Upto 1.5 Mbps(Special)","Upto 2 Mbps(Special)","Upto 3 Mbps(Special)","Upto 512 Kbps(Dedicated)","Upto 1 Mbps(Dedicated)", "Upto 1.5 Mbps(Dedicated)","Upto 2 Mbps(Dedicated)","Upto 3 Mbps(Dedicated)"] %></td>
+      <td> <%= f.collection_select :connection_type, Connection.order(:name), :id, :name, include_blank: true, class: "form-control" %>  <%= link_to "Add one" , new_connection_path, :target => '_blank'  %> </td>
+
+
+
 
     </tr>
   </table>

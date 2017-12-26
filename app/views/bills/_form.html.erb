@@ -14,8 +14,8 @@
                                   <% end %>
 
                                     <div class="form-group">
-                                      <%= f.label :customer_name %>&nbsp &nbsp
-                                      <%= f.text_field :customer_name, class: "form-control" %>
+                                      <%= f.label :customer_id %>&nbsp &nbsp
+                                      <%= f.collection_select :customer_id, Customer.order(:name), :id, :name, include_blank: true, class: "form-control" %>
                                     </div>
                                   
                                     <div class="form-group">
