@@ -6,5 +6,3 @@
 
  jQuery ->
   $('#bills').dataTable()
-
-	
