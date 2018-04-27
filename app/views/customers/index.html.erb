@@ -2,15 +2,36 @@
 
 <h1>Listing Customers</h1>
 
+
+  <div>
+      <%= search_form_for @search do |f| %>
+        <%= f.condition_fields do |c| %>
+          <%= c.attribute_fields do |a| %>
+            <%= a.attribute_select %>                           
+          <% end %>                                           
+          <%= c.predicate_select only: [:cont, :lteq, :gteq]%>    
+           <%= c.value_fields do |v| %>                          
+          <%= v.text_field :value %>                          
+        <%end %>                                              
+      <%end %>
+    <%= f.submit %>
+    <% end %>
+    <%= link_to "Reset Search", customers_path %>
+  </div>
+
+<div><h3 align="right" class="btn btn-success" ><%= link_to 'New Customer', new_customer_path %> </h3> <h3 class="btn btn-success" ><%= link_to 'Acitive Customers', active_customers_path %> </h3> <h3 class="btn btn-success" ><%= link_to 'Incitive Customers', inactive_customers_path %> </h3></div>
+
+
 <table id="customers" class="table table-striped table-bordered table-hover">
-  <thead>
+  <thead bgcolor="#b3ffcc" >
     <tr>
-      <th >Name</th>      <th>Customer ID</th>
-      <th>Mac address</th>
-      <th>Ip address</th>
-      <th>Connection type</th>
-      <th>Status</th>
-      <th>Billing code</th>
+      <th ><%= sort_link @search, :name, "Name"%></th>
+      <th><%= sort_link @search, :customer_id, "Customer ID"%></th>
+      <th><%= sort_link @search, :mac_address, "Mac address"%></th>
+      <th><%= sort_link @search, :ip_address, "Ip address"%></th></th>
+      <th><%= sort_link @search, :connection_type, "Connection type"%></th></th>
+      <th><%= sort_link @search, :status, "Status"%></th></th>
+      <th><%= sort_link @search, :billing_code, "Billing code"%></th></th>
       <th>Address</th>
       <th>Contact no</th>
       <th>Contact person</th>
@@ -21,13 +42,27 @@
 
   <tbody>
     <% @customers.each do |customer| %>
+    
       <tr>
         <td><%= link_to customer.name, customer %></td>
         <td><%= customer.customer_id %></td>
         <td><%= customer.mac_address %></td>
         <td><%= customer.ip_address %></td>
-        <td><%= customer.connection_type %></td>
-        <td><%= customer.status %></td>
+        <td><%= Connection.find(customer.connection_type).name %></td>
+        <% if customer.bills.last.valid_up_to < Date.today%>
+        
+            <% if customer.status == "Active" %>
+             <td bgcolor="red"><%=customer.status = "Deactivate Now"%></td>
+              
+              <%else%>
+              <td ><%= customer.status = "Inactive"%></td>
+            <%end%>
+
+        <% else %>
+
+          <td><%= customer.status = "Active" %></td>
+       
+        <%end%>
         <td><%= customer.billing_code %></td>
         <td><%= customer.address %></td>
         <td><%= customer.contact_no %></td>
@@ -37,11 +72,11 @@
         <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
         <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
+      
     <% end %>
   </tbody>
 </table>
 
 
-<br>
 
-<%= link_to 'New Customer', new_customer_path %>
+

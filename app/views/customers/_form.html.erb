@@ -40,7 +40,7 @@
 
     <tr>
       <td> <%= f.text_field :ip_address %></td>
-      <td> <%= f.collection_select :connection_type, Connection.order(:name), :id, :name, include_blank: true, class: "form-control" %>  <%= link_to "Add one" , new_connection_path, :target => '_blank'  %> </td>
+      <td> <%= f.collection_select :connection_type, Connection.order(:name), :id, :name, class: "form-control" %>  <%= link_to "Add one" , new_connection_path, :target => '_blank'  %> </td>
 
 
 
@@ -57,7 +57,7 @@
     </tr>
 
     <tr>
-      <td>  <%= f.select :status, ["active", "inactive"]  %></td>
+      <td>  <%= f.select :status, ["Active", "Inactive"]  %></td>
       <td><%= f.select :billing_code, ["On 1st of Month","On 7th of Month", "On 14th of Month" ] %></td>
 
     </tr>

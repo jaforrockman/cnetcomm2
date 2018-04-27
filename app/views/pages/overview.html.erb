@@ -1,0 +1,47 @@
+<div style="width: 100%; overflow: hidden;">
+
+
+    <div style="width: 600px; float: left;"> 
+
+
+
+<% @cost_by_months.each do |month, costs| %>
+<% @bill_by_months.each do |month, bills| %>
+
+ 
+    <tbody>
+      <tr>
+        <td><h3><%= month %></h3> </td>
+      </tr>
+    </tbody>
+
+
+  <table class="table table-hover">
+    <thead bgcolor="#008AB8">
+      <tr>
+       
+      
+      <th>total bills of this month</th>     
+      <th>total costs of this month</th> 
+      <th> Balance of this month</th>
+
+      </tr>
+    </thead>
+
+    <tbody>
+       
+          <tr>
+            
+             <td align="left">total = <%=bills.sum(&:bill_amount)%></td>
+             <td align="left">total = <%=costs.sum(&:cost_amount)%></td>
+             <td align="left">total = <%=bills.sum(&:bill_amount) - costs.sum(&:cost_amount)%></td>
+            
+          </tr>
+      </tbody>
+       
+  </table>
+
+<%end%> 
+<%end%>
+ </div>
+

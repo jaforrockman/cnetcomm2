@@ -2,13 +2,31 @@
 
 <h1>Listing Bills</h1>
 
-<table id="datat" class="table table-striped table-bordered table-hover">
-  <thead>
+<div>
+    <%= search_form_for @search do |f| %>
+    <%= f.condition_fields do |c| %>
+    <%= c.attribute_fields do |a| %>
+      <%= a.attribute_select %>                         
+     <% end %>                                           
+     <%= c.predicate_select only: [:cont, :lteq, :gteq]%>  
+     <%= c.value_fields do |v| %>                          
+      <%= v.text_field :value %>                          
+     <%end %>                                             
+    <%end %>
+    <%= f.submit %>
+  <% end %>
+<%= link_to "Reset Search", bills_path %>
+</div>
+
+
+<table id="bills" class="table table-striped table-bordered table-hover">
+  <thead bgcolor="#b3ffcc" >
     <tr>
-      <th>Customer ID</th>
-      <th>Bill amount</th>
-      <th>Valid up to</th>
-      <th>Transaction type</th>
+    <th> <%= sort_link @search, :customer_id, "Customer ID"%></th>
+      <th> <%= sort_link @search, :customer_name, "Customer name"%></th>
+      <th> <%= sort_link @search, :bill_amount, "Bill Amount"%></th>
+      <th> <%= sort_link @search, :valid_up_to, "Valid Up To"%></th>
+      <th> <%= sort_link @search, :transaction_type, "Transaction Type"%></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,18 +34,22 @@
   <tbody>
     <% @bills.each do |bill| %>
       <tr>
-        <td><%= bill.customer_id %></td>
-        <td><%= bill.bill_amount %></td>
-        <td><%= bill.valid_up_to %></td>
+        <td><%= bill.customer_id%></td>
+        <td><%= Customer.find(bill.customer_id).name %></td>
+        <td align="right"><%= sprintf '%02d', bill.bill_amount %></td>
+        <td><%= bill.valid_up_to.strftime("%d/%m/%Y") %></td>
         <td><%= bill.transaction_type %></td>
         <td> <%= awesome_link('fa fa-eye', bill)  %></td>
         <td><%=  awesome_link('fa-pencil-square-o', edit_bill_path(bill)) %></td>
        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+      <td colspan="2" align="right">Total =</td>
+     <td align="right"><%= bill_total %></td>
   </tbody>
 </table>
 
 <br>
 
 <%= link_to 'New Bill', new_bill_path %>
+

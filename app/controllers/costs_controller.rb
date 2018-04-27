@@ -5,6 +5,9 @@ class CostsController < ApplicationController
   # GET /costs.json
   def index
     @costs = Cost.all
+     @search = Cost.ransack(params[:q])
+    @costs = @search.result
+    @search.build_condition
   end
 
   # GET /costs/1

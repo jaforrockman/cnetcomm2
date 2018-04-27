@@ -6,7 +6,11 @@ class BillsController < ApplicationController
   # GET /bills
   # GET /bills.json
   def index
-    @bills = Bill.all
+   
+    @search = Bill.ransack(params[:q])
+    @bills = @search.result
+    @search.build_condition
+   
   end
 
   # GET /bills/1
@@ -22,12 +26,14 @@ class BillsController < ApplicationController
 
   # GET /bills/1/edit
   def edit
+    
   end
 
   # POST /bills
   # POST /bills.json
   def create
     @bill = Bill.new(bill_params)
+    @bill.valid_up_to = DateTime.strptime(params[:bill][:valid_up_to],'%Y/%m/%d').to_date
 
     respond_to do |format|
       if @bill.save

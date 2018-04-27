@@ -10,12 +10,19 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
+
+//= require jquery
+//= require jquery3
+//= require bootstrap-sprockets
+//= require bootstrap
+//= require rails-ujs
+//= require jquery_nested_form
 //= require turbolinks
+
 //= custom
 //= jquery-1.10.2
 //= require jquery
 //= require jquery-ui
-//= require dataTables/jquery.dataTables
 //= require jquery-ui/datepicker
 //= require jquery.turbolinks
 //= require maskedinput

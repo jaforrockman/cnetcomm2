@@ -1,8 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Customer id:</strong>
-  <%= @bill.customer_id %>
+  <strong>Bill ID:</strong>
+  <%= sprintf '%03d', @bill.id %>
+</p>
+<p>
+  <strong>Bill Date:</strong>
+  <%= @bill.created_at.strftime("%d/%m/%Y") %>
+</p>
+
+
+<p>
+  <strong>Customer Id:</strong>
+  <%= sprintf '%03d', @bill.customer_id %> &nbsp &nbsp
+
+  <strong>Customer Name:</strong>
+   <%= Customer.find(@bill.customer_id).name %>
 </p>
 
 <p>

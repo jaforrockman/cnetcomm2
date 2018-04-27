@@ -1,33 +1,64 @@
 <p id="notice"><%= notice %></p>
+<%= link_to 'New Cost', new_cost_path %>
 
 <h1>Listing Costs</h1>
 
-<table class="table table-striped table-bordered table-hover">
-  <thead>
+
+
+  <div>
+    <%= search_form_for @search do |f| %>
+      <%= f.condition_fields do |c| %>
+        <%= c.attribute_fields do |a| %>
+          <%= a.attribute_select %>                         
+        <% end %>                                           
+      <%= c.predicate_select only: [:cont, :lteq, :gteq]%>  
+      <%= c.value_fields do |v| %>                          
+        <%= v.text_field :value %>                          
+      <%end %>                                              
+    <%end %>
+    <%= f.submit %>
+    <% end %>
+    <%= link_to "Reset Search", costs_path %>
+  </div>
+
+
+
+<table  id="datatable" class="table table-striped table-bordered table-hover">
+  <thead bgcolor="#b3ffcc" >
     <tr>
-      <th>Date</th>
-      <th>Name</th>
-      <th>Kind</th>
-      <th>Cost amount</th>
-      <th colspan="3"></th>
+    <tr>
+    <th> <%= sort_link @search, :cost_date, "Cost Date"%></th>
+    <th> <%= sort_link @search, :name, "Name"%></th>
+    <th> <%= sort_link @search, :kind,  "Kind"%></th>
+    <th> <%= sort_link @search, :cost_amount,  "Cost Amount"%></th>
+    <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
     <% @costs.each do |cost| %>
       <tr>
+       <tr>
         <td><%= cost.cost_date %></td>
-        <td><%= cost.name %></td>
+        <td><%= link_to cost.name, cost_path(cost) %></td>
         <td><%= cost.kind %></td>
-        <td><%= cost.cost_amount %></td>
+        <td align="right"><%= cost.cost_amount %></td>
         <td><%= link_to 'Show', cost %></td>
         <td><%= link_to 'Edit', edit_cost_path(cost) %></td>
         <td><%= link_to 'Destroy', cost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
+    
+    
+    <td  colspan="3" align="right"> <apan id="total"> total = </apan></td>
+    <td class="total" align="right"> <apan id="total">  <%= cost_total%></apan></td>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Cost', new_cost_path %>
+
+
+
+
+ 

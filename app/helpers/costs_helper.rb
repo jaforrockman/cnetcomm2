@@ -1,5 +1,6 @@
 module CostsHelper
-	def total_bill
-		Bill.all.sum(:bill_amount)
+	
+	def cost_total
+		@costs.sum(:cost_amount)
 	end
 end

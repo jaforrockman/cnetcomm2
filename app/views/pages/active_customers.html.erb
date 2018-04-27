@@ -1,0 +1,50 @@
+
+
+<div >
+<h1>Active customers</h1>
+
+<div>
+  <h3 align="right" class="btn btn-success" ><%= link_to 'Back To All Customers', customers_path %> </h3> <h3 class="btn btn-success" ><%= link_to 'Iancitive Customers', inactive_customers_path %> </h3></br>
+</div>
+
+<%@customers= Customer.active_customers%>
+<table id="customers" class="table table-striped table-bordered table-hover">
+  <thead bgcolor="#b3ffcc" >
+    <tr>
+      <th ><%= sort_link @search, :name, "Name"%></th>
+      <th><%= sort_link @search, :customer_id, "Customer ID"%></th>
+      <th><%= sort_link @search, :mac_address, "Mac address"%></th>
+      <th><%= sort_link @search, :ip_address, "Ip address"%></th></th>
+      <th><%= sort_link @search, :connection_type, "Connection type"%></th></th>
+      <th><%= sort_link @search, :status, "Status"%></th></th>
+      <th><%= sort_link @search, :billing_code, "Billing code"%></th></th>
+      <th>Address</th>
+      <th>Contact no</th>
+      <th>Contact person</th>
+      <th>Email</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @customers.each do |customer| %>
+      <tr>
+        <td><%= link_to customer.name, customer %></td>
+        <td><%= customer.customer_id %></td>
+        <td><%= customer.mac_address %></td>
+        <td><%= customer.ip_address %></td>
+        <td><%= Connection.find(customer.connection_type).name %></td>
+        <td><%= customer.status %></td>
+        <td><%= customer.billing_code %></td>
+        <td><%= customer.address %></td>
+        <td><%= customer.contact_no %></td>
+        <td><%= customer.contact_person %></td>
+        <td><%= customer.email %></td>
+        <td><%= link_to 'Show', customer %></td>
+        <td><%= link_to 'Edit', edit_customer_path(customer) %></td>
+        <td><%= link_to 'Destroy', customer, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</div>

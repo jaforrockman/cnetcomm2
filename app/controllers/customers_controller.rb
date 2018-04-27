@@ -4,7 +4,9 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = Customer.all
+    @search = Customer.ransack(params[:q])
+    @customers = @search.result
+    @search.build_condition
   end
 
   # GET /customers/1
@@ -20,6 +22,8 @@ class CustomersController < ApplicationController
   # GET /customers/1/edit
   def edit
   end
+
+  
 
   # POST /customers
   # POST /customers.json
@@ -69,6 +73,6 @@ class CustomersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def customer_params
-      params.require(:customer).permit(:name, :customer_id, :mac_address, :ip_address, :connection_type, :status, :billing_code, :address, :contact_no, :contact_person, :email)
+      params.require(:customer).permit(:name, :customer_id, :mac_address, :status, :ip_address, :connection_type, :billing_code, :address, :contact_no, :contact_person, :email)
     end
 end

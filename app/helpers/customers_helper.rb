@@ -1,6 +1,8 @@
 module CustomersHelper
-	def bill_total
+	def thiscustomer_bill_total
 		Customer.find(params[:id]).bills.sum(:bill_amount)
 	end
+
+
 
 end
