@@ -13,7 +13,7 @@
                                       </div>
                                   <% end %>
 
-                                    <div class="form-group">
+                                    <div class="form-group" id="select">
                                       <%= f.label :customer_id %>&nbsp &nbsp
                                       <%= f.collection_select :customer_id, Customer.order(:name), :id, :name, include_blank: true, class: "form-control" %>
                                     </div>
