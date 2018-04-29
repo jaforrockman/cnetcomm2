@@ -49,20 +49,22 @@
         <td><%= customer.mac_address %></td>
         <td><%= customer.ip_address %></td>
         <td><%= Connection.find(customer.connection_type).name %></td>
-        <% if customer.bills.last.valid_up_to < Date.today%>
+       <% if Bill.exists?(customer_id: customer.customer_id)%>
         
+       
+        <% if customer.bills.last.valid_up_to < Date.today%>
             <% if customer.status == "Active" %>
              <td bgcolor="red"><%=customer.status = "Deactivate Now"%></td>
-              
-              <%else%>
+            <%else%>
               <td ><%= customer.status = "Inactive"%></td>
             <%end%>
-
         <% else %>
-
           <td><%= customer.status = "Active" %></td>
-       
         <%end%>
+    <% else %> 
+    <td ><%= customer.status = "Inactive"%></td>
+    <%end%>
+
         <td><%= customer.billing_code %></td>
         <td><%= customer.address %></td>
         <td><%= customer.contact_no %></td>

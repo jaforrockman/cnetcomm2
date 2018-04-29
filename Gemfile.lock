@@ -296,6 +296,7 @@ DEPENDENCIES
   jquery-rails
   jquery-turbolinks
   jquery-ui-rails (= 5.0.5)
+  kaminari
   maskedinput-rails
   puma (~> 3.7)
   rails (~> 5.1.4)

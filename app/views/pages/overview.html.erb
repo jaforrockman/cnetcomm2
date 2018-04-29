@@ -32,9 +32,9 @@
        
           <tr>
             
-             <td align="left">total = <%=bills.sum(&:bill_amount)%></td>
-             <td align="left">total = <%=costs.sum(&:cost_amount)%></td>
-             <td align="left">total = <%=bills.sum(&:bill_amount) - costs.sum(&:cost_amount)%></td>
+             <td align="left">Total Bills = <%=number_to_currency(bills.sum(&:bill_amount))%></td>
+             <td align="left">Total Costs = <%=number_to_currency(costs.sum(&:cost_amount))%></td>
+             <td align="left">Total Balance = <%=number_to_currency(bills.sum(&:bill_amount) - costs.sum(&:cost_amount))%></td>
             
           </tr>
       </tbody>
