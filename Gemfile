@@ -28,7 +28,7 @@ gem 'maskedinput-rails'
 gem 'bootstrap-datepicker-rails'
 gem 'ransack', github: 'activerecord-hackery/ransack'
 gem 'rails_admin', '~> 1.2'
-
+gem 'kaminari'
 gem 'bootstrap'
 
 group :assets do
