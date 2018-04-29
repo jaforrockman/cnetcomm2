@@ -11,7 +11,7 @@ gem 'sqlite3'
 
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'turbolinks', '~> 5'
-#gem 'rails4-autocomplete'
+
 gem 'jquery-turbolinks'
 
 gem 'jquery-rails'
@@ -49,7 +49,7 @@ group :development, :test do
 end
 
 group  :production do
-  #gem 'pg', '0.21.0'
+ 
 end
 
 group :development,:test do
