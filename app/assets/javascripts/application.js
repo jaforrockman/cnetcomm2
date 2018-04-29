@@ -11,21 +11,15 @@
 // about supported directives.
 //
 
-//= require jquery
-//= require jquery3
-//= require bootstrap-sprockets
-//= require bootstrap
-//= require rails-ujs
-//= require jquery_nested_form
-//= require turbolinks
+
 
 //= custom
-//= jquery-1.10.2
-//= require jquery
 //= require jquery-ui
 //= require jquery-ui/datepicker
 //= require jquery.turbolinks
 //= require maskedinput
+//= require turbolinks
+//= require jquery
 //= require jquery_ujs
 //= require bootstrap.min
 //= require rails-ujs
