@@ -3,7 +3,7 @@
 <h1>Inctive cutomers</h1>
 
 <div>
-  <h3 align="right" class="btn btn-success" ><%= link_to 'Back To All Customers', customers_path %> </h3> <h3 class="btn btn-success" ><%= link_to 'Acitive Customers', active_customers_path %> </h3>
+  <h3 align="right" class="btn btn-success" ><%= link_to 'Back To All Customers', customers_path %> </h3> <h3 class="btn btn-success" ><%= link_to 'Active Customers', active_customers_path %> </h3>
 </div>
 
 
@@ -33,7 +33,11 @@
         <td><%= customer.customer_id %></td>
         <td><%= customer.mac_address %></td>
         <td><%= customer.ip_address %></td>
-        <td><%= Connection.find(customer.connection_type).name %></td>
+        <% if Connection.any? %>
+          <td><%= Connection.find(customer.connection_type).name %></td>
+          <%else%>
+          <td>Please create a connection type first</td>
+        <%end%>
         <td><%= customer.status%></td>
         <td><%= customer.billing_code %></td>
         <td><%= customer.address %></td>

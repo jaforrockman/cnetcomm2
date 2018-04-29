@@ -27,7 +27,12 @@
                              <i class="glyphicon glyphicon-gift"></i><h5><%= @customer.customer_id %></h5><br />
                             <i class="glyphicon glyphicon-gift"></i><%= @customer.mac_address %><br />
                             <i class="glyphicon glyphicon-gift"></i><%= @customer.ip_address %><br />
+                            <% if Connection.any?%>
                             <i class="glyphicon glyphicon-gift"></i><%= Connection.find(@customer.connection_type).name %><br />
+                            <%else%>
+                            <i class="glyphicon glyphicon-gift"></i>please select a plan<br />
+                            <%end%>
+
                             <i class="glyphicon glyphicon-gift"></i><%= @customer.billing_code %><br />
                             <i class="glyphicon glyphicon-gift"></i><%= @customer.status %><br />
 
