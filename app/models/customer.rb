@@ -1,6 +1,6 @@
 class Customer < ApplicationRecord
 	has_many :bills, dependent: :destroy
-  has_many :connection, dependent: :destroy
+  
   
   scope :active_customers, -> { where(status: 'Active') }
   scope :inactive_customers, -> { where(status: 'Inactive') }
