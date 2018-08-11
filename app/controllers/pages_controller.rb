@@ -34,7 +34,8 @@ def cost_list
    def overview
 
     @bills = Bill.all.order("created_at DESC")
-    @bill_by_months = @bills.group_by{|bill| bill.created_at.strftime("%B %Y")}
+    @paid_bill_by_months = @bills.paid_bills.group_by{|bill| bill.created_at.strftime("%B %Y")}
+    @due_bill_by_months = @bills.due_bills.group_by{|bill| bill.created_at.strftime("%B %Y")}
 
 
      @costs = Cost.all.order("created_at DESC")

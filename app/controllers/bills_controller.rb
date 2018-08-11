@@ -7,7 +7,7 @@ class BillsController < ApplicationController
   # GET /bills.json
   def index
    
-    @search = Bill.ransack(params[:q])
+    @search = Bill.paid_bills.ransack(params[:q])
     @bills = @search.result
     @search.build_condition
    
@@ -27,6 +27,12 @@ class BillsController < ApplicationController
   # GET /bills/1/edit
   def edit
     
+  end
+
+  def due_bills
+    @search = Bill.due_bills.ransack(params[:q])
+    @bills = @search.result
+    @search.build_condition
   end
 
   # POST /bills

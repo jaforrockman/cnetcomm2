@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<%= link_to 'New Cost', new_cost_path %>
+<%= link_to 'New Expense', new_cost_path %>
 
 <h1>Listing Costs</h1>
 
@@ -27,10 +27,10 @@
   <thead bgcolor="#b3ffcc" >
     <tr>
     <tr>
-    <th> <%= sort_link @search, :cost_date, "Cost Date"%></th>
+    <th> <%= sort_link @search, :cost_date, "Expense Date"%></th>
     <th> <%= sort_link @search, :name, "Name"%></th>
     <th> <%= sort_link @search, :kind,  "Kind"%></th>
-    <th> <%= sort_link @search, :cost_amount,  "Cost Amount"%></th>
+    <th> <%= sort_link @search, :cost_amount,  "Expense Amount"%></th>
     <th colspan="3"></th>
     </tr>
   </thead>

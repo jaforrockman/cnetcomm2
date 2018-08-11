@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
 	has_many :bills, dependent: :destroy
+  validates :connection_type, presence: true
   
   
   scope :active_customers, -> { where(status: 'Active') }

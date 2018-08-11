@@ -49,30 +49,31 @@
         <td><%= customer.mac_address %></td>
         <td><%= customer.ip_address %></td>
 
-        <% if Connection.any? %>
+        <% if Connection.find(customer.connection_type).present? %>
           <td><%= Connection.find(customer.connection_type).name %></td>
           <%else%>
           <td>Please create a connection type first</td>
         <%end%>
+       
 
-
-       <% if customer.bills.any?%>   
-            <% if customer.bills.last.valid_up_to < Date.today%>
-                  <% if customer.status = "Active" %>
-                   <td bgcolor="red"><%=customer.status = "Deactivate Now"%></td>
-                  <%else%>
-                    <td ><%= customer.status = "Inactive"%></td>
-                  <%end%>
+       
+        <%if customer.status == "Active" %>           
+            <% if customer.bills.any? %>   
+                <% if customer.bills.last.valid_up_to < Date.today%>
+                     <td bgcolor="red"><%=customer.status = "Deactivate Now"%></td>
+                  <% elsif customer.bills.last.valid_up_to > Date.today %>
+                      <td ><%= customer.status %></td>
+                <% end %>
             <% else %>
-              <td><%= customer.status = "Active" %></td>
-            <%end%>
-    <% else %> 
-          <% if customer.status = "Active" %>
-              <td bgcolor="red" ><%=customer.status = "Deactivate Now"%></td>
-                <%else%>
-              <td ><%= customer.status = "Inactive"%></td>
-            <%end%>
-    <%end%>
+
+                <td bgcolor="red"><%=customer.status = "Deactivate Now"%></td>
+                
+            <% end %>         
+          <% else %>
+         <td><%= customer.status%></td>
+      <% end %>
+        
+
 
         <td><%= customer.billing_code %></td>
         <td><%= customer.address %></td>

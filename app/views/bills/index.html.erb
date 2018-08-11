@@ -17,7 +17,9 @@
   <% end %>
 <%= link_to "Reset Search", bills_path %>
 </div>
-
+<div>
+  <h3 align="right" class="btn btn-success" ><%= link_to 'New Bill', new_bill_path %> </h3> <h3 class="btn btn-success" ><%= link_to 'Due Bills', due_bills_path %> </h3> 
+</div>
 
 <table id="bills" class="table table-striped table-bordered table-hover">
   <thead bgcolor="#b3ffcc" >
@@ -32,7 +34,7 @@
   </thead>
 
   <tbody>
-    <% @bills.each do |bill| %>
+    <% @bills.paid_bills.each do |bill| %>
       <tr>
         <td><%= bill.customer_id%></td>
         <td><%= Customer.find(bill.customer_id).name %></td>
@@ -45,7 +47,7 @@
       </tr>
     <% end %>
       <td colspan="2" align="right">Total =</td>
-     <td align="right"><%= bill_total %></td>
+     <td align="right"><%= paid_bill_total %></td>
   </tbody>
 </table>
 

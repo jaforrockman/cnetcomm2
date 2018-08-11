@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get '/cost_list'=> 'pages#cost_list'
   get '/overview'=> 'pages#overview'
   get '/admin_panel'=> 'pages#admin_panel'
+  get '/due_bills'=> 'bills#due_bills'
 
   get '/active_customers'=> 'pages#active_customers'
   get '/inactive_customers'=> 'pages#inactive_customers'
